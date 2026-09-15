@@ -51,16 +51,15 @@ const CONFIG = {
    ========================================================================== */
 
 const PORTFOLIO = [
-  // IMAGENS DE TESTE (Unsplash). Substitua por fotos reais.
   {
     tag: "Residencial",
     titulo: "Piso de Peroba Real",
     descricao: "Instalacao de piso de peroba real com acabamento premium em residencia de alto padrao.",
-    imagem: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1000&q=70",
+    imagem: "assets/images/portfolio/projeto-01/foto-01.jpg",
     imagens: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1000&q=70",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=70",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=70"
+      "assets/images/portfolio/projeto-01/foto-01.jpg",
+      "assets/images/portfolio/projeto-01/foto-02.jpg",
+      "assets/images/portfolio/projeto-01/foto-03.jpg"
     ],
     categoria: "Pisos"
   },
@@ -68,10 +67,11 @@ const PORTFOLIO = [
     tag: "Restauracao",
     titulo: "Restauracao de Piso Antigo",
     descricao: "Raspagem, lixamento e nova aplicacao de acabamento em piso de madeira centenario.",
-    imagem: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=70",
+    imagem: "assets/images/portfolio/projeto-02/foto-01.jpg",
     imagens: [
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=70",
-      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1000&q=70"
+      "assets/images/portfolio/projeto-02/foto-01.jpg",
+      "assets/images/portfolio/projeto-02/foto-02.jpg",
+      "assets/images/portfolio/projeto-02/foto-03.jpg"
     ],
     categoria: "Restauracao"
   },
@@ -79,22 +79,22 @@ const PORTFOLIO = [
     tag: "Comercial",
     titulo: "Piso em Espaco Comercial",
     descricao: "Piso de madeira nobre em loja de luxo com acabamento acetinado e alta durabilidade.",
-    imagem: "https://images.unsplash.com/photo-1600607687644-c7f34b5e6db0?auto=format&fit=crop&w=1000&q=70",
+    imagem: "assets/images/portfolio/projeto-03/foto-01.jpg",
     imagens: [
-      "https://images.unsplash.com/photo-1600607687644-c7f34b5e6db0?auto=format&fit=crop&w=1000&q=70",
-      "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1000&q=70",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=70"
+      "assets/images/portfolio/projeto-03/foto-01.jpg",
+      "assets/images/portfolio/projeto-03/foto-02.jpg",
+      "assets/images/portfolio/projeto-03/foto-03.jpg"
     ],
     categoria: "Pisos"
   },
   {
     tag: "Acabamento",
     titulo: "Acabamento Premium",
-    descricao: "Aplicacao de verniz marine e polimento de alto brilho em piso de jatoba.",
-    imagem: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=70",
+    descricao: "Aplicacao de verniz marine, polimento e tratamento de alto brilho em piso de jatoba.",
+    imagem: "assets/images/portfolio/projeto-04/foto-01.jpg",
     imagens: [
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=70",
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=70"
+      "assets/images/portfolio/projeto-04/foto-01.jpg",
+      "assets/images/portfolio/projeto-04/foto-02.jpg"
     ],
     categoria: "Acabamento"
   }

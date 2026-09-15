@@ -230,14 +230,24 @@ header.glass.scrolled::before {
 }
 
 /* Menu */
+.nav-menu {
+  align-self: center;
+  min-width: 0;
+}
+
 .nav-menu ul {
   display: flex;
+  align-items: center;
   gap: 6px;
 }
 
 .nav-menu a {
+  display: inline-flex;
+  align-items: center;
   font-weight: 500;
   font-size: 0.9rem;
+  line-height: 1.2;
+  white-space: nowrap;
   color: rgba(255,255,255,0.8);
   padding: 8px 14px;
   border-radius: var(--radius-sm);
@@ -2228,6 +2238,32 @@ body.no-scroll {
 /* --------------------------------------------------------------------------
    17. RESPONSIVIDADE
    -------------------------------------------------------------------------- */
+
+/* Desktop compacto: reduz o cabecalho para caber em uma linha sem desalinhar */
+@media (max-width: 1300px) {
+  .nav-menu ul {
+    gap: 2px;
+  }
+
+  .nav-menu a {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .logo-text strong {
+    font-size: 1.15rem;
+  }
+
+  .logo-box {
+    width: 44px;
+    height: 44px;
+  }
+
+  .btn-header {
+    padding: 9px 16px;
+    font-size: 0.82rem;
+  }
+}
 
 /* Tablet */
 @media (max-width: 1024px) {
