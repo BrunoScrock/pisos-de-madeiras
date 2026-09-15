@@ -1698,28 +1698,60 @@ body.no-scroll {
   line-height: 1.65;
 }
 
-/* ---- Animacao sequencial dos passos ---- */
+/* ---- Animacao do processo: progresso pausado no passo 2 (Orcamento) ---- */
 
 .process-step {
-  transition: opacity 0.45s ease;
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease;
 }
 
 .process-animated .process-step {
   opacity: 0;
+  transform: translateY(30px);
+  filter: blur(8px);
 }
 
-.process-animated .process-step.checked {
+.process-animated .process-step.in {
   opacity: 1;
-  animation: passoEntra 0.8s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+  transform: translateY(0);
+  filter: blur(0);
 }
 
-.process-animated .process-grid::before {
-  transform: scaleX(1);
+/* Linha de progresso desliza e para no passo 2 */
+.process-grid::before {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.3s ease;
+}
+
+.process-grid.line-on::before {
+  transform: scaleX(0.5);
+}
+
+/* Ponta luminosa da linha, pulsando no passo 2 */
+.process-grid::after {
+  content: "";
+  position: absolute;
+  top: 39px;
+  left: 16.66%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(196, 154, 108, 0.55);
+  z-index: 0;
+  opacity: 0;
+  transition: left 1.3s ease 0.15s, opacity 0.4s ease 0.15s;
+}
+
+.process-grid.line-on::after {
+  left: 50%;
+  opacity: 1;
+  animation: pontaPulso 1.8s ease-out infinite 0.8s;
 }
 
 .process-num {
-  transition: opacity 0.3s ease, transform 0.3s ease;
   display: block;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .process-check {
@@ -1729,8 +1761,8 @@ body.no-scroll {
   height: 46px;
   margin: auto;
   opacity: 0;
-  transform: scale(0.7) rotate(-10deg);
-  transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.22, 1.2, 0.36, 1);
+  transform: scale(0.6);
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .process-check-path {
@@ -1743,36 +1775,49 @@ body.no-scroll {
   stroke-dashoffset: 26;
 }
 
-.process-step.checked .process-number {
-  border-color: rgba(196, 154, 108, 0.6);
-  background: linear-gradient(135deg, var(--accent) 0%, #E3C292 100%);
+/* Passo concluido: circulo dourado com check */
+.process-step.done .process-number {
+  border-color: rgba(196, 154, 108, 0.55);
+  background: linear-gradient(135deg, var(--accent), #E3C292);
   color: var(--primary);
-  animation: anelPulso 1s ease;
 }
 
-.process-step.checked .process-num {
+.process-step.done .process-num {
   opacity: 0;
   transform: translateY(-6px) scale(0.8);
 }
 
-.process-step.checked .process-check {
+.process-step.done .process-check {
   opacity: 1;
-  transform: scale(1) rotate(0deg);
+  transform: scale(1);
 }
 
-.process-step.checked .process-check-path {
-  animation: desenhaCheck 0.55s ease forwards 0.3s;
+.process-step.done .process-check-path {
+  animation: desenhaCheck 0.55s ease forwards 0.25s;
 }
 
-@keyframes passoEntra {
-  0%   { opacity: 0; transform: translateY(48px) scale(0.92); }
-  60%  { opacity: 1; transform: translateY(-8px) scale(1.04); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+/* Passo ativo (Orcamento): anel pulsante e titulo em gradiente */
+.process-step.active .process-number {
+  animation: anelPulso 1.8s ease-out infinite;
+}
+
+.process-step.active h3 {
+  background: linear-gradient(90deg, var(--primary), var(--wood));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes pontaPulso {
+  0%   { box-shadow: 0 0 0 0 rgba(196, 154, 108, 0.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(196, 154, 108, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(196, 154, 108, 0); }
 }
 
 @keyframes anelPulso {
-  0%   { box-shadow: 0 0 0 0 rgba(196, 154, 108, 0.45); }
-  100% { box-shadow: 0 0 0 16px rgba(196, 154, 108, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(196, 154, 108, 0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(196, 154, 108, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(196, 154, 108, 0); }
 }
 
 @keyframes desenhaCheck {
@@ -2382,7 +2427,8 @@ body.no-scroll {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .process-grid::before {
+  .process-grid::before,
+  .process-grid::after {
     display: none;
   }
 }
@@ -2602,7 +2648,8 @@ body.no-scroll {
     gap: 32px;
   }
 
-  .process-grid::before {
+  .process-grid::before,
+  .process-grid::after {
     display: none;
   }
 
@@ -2822,16 +2869,18 @@ body.no-scroll {
     animation: none;
   }
 
-  .process-animated .process-step {
+  .process-animated .process-step,
+  .process-animated .process-step.in {
     opacity: 1;
     transform: none;
+    filter: none;
   }
 
-  .process-num {
+  .process-step.done .process-num {
     opacity: 0;
   }
 
-  .process-check {
+  .process-step.done .process-check {
     opacity: 1;
     transform: none;
   }
@@ -2840,7 +2889,10 @@ body.no-scroll {
     stroke-dashoffset: 0;
   }
 
-  .process-grid::before {
+  .process-grid::before,
+  .process-grid::after {
     transform: scaleX(1);
+    opacity: 1;
+    left: 50%;
   }
 }

@@ -39,15 +39,15 @@ function enviarFormulario(event) {
   const cidade = form.querySelector('[name="cidade"]').value.trim();
 
   if (!nome || !telefone || !servico || !descricao) {
-    alert("Por favor, preencha todos os campos obrigatorios.");
+    alert("Por favor, preencha todos os campos obrigatórios.");
     return;
   }
 
-  let mensagem = `Ola! Gostaria de solicitar um orcamento.\n\n`;
+  let mensagem = `Olá! Gostaria de solicitar um orçamento.\n\n`;
   mensagem += `*Nome:* ${nome}\n`;
   mensagem += `*Telefone:* ${telefone}\n`;
-  mensagem += `*Tipo de servico:* ${servico}\n`;
-  mensagem += `*Descricao:* ${descricao}\n`;
+  mensagem += `*Tipo de serviço:* ${servico}\n`;
+  mensagem += `*Descrição:* ${descricao}\n`;
   if (cidade) mensagem += `*Cidade:* ${cidade}\n`;
   mensagem += `\nAguardo retorno. Obrigado!`;
 
@@ -101,7 +101,7 @@ function montarCoverflow() {
         '<h3 class="coverflow-title">' + item.titulo + '</h3>' +
         (item.descricao ? '<p class="coverflow-desc">' + item.descricao + '</p>' : '') +
         (item.imagens && item.imagens.length > 1 ? '<span class="coverflow-hint">Ver todas as fotos</span>' : '') +
-        '<button class="coverflow-cta" data-categoria="' + (item.categoria || '') + '">Solicitar Orcamento</button>' +
+        '<button class="coverflow-cta" data-categoria="' + (item.categoria || '') + '">Solicitar Orçamento</button>' +
       '</div>';
     card.appendChild(content);
 
@@ -568,7 +568,7 @@ function iniciarReveal() {
 }
 
 /* --------------------------------------------------------------------------
-   ANIMACAO SEQUENCIAL DO PROCESSO (checks um a um)
+   ANIMACAO DO PROCESSO — progresso pausado no passo 2 (Orcamento)
    -------------------------------------------------------------------------- */
 
 function iniciarAnimarProcesso() {
@@ -582,20 +582,30 @@ function iniciarAnimarProcesso() {
 
   grade.classList.add("process-animated");
 
-  function marcarTudo() {
-    passos.forEach(function (p) { p.classList.add("checked"); });
+  function estadoFinal() {
+    passos.forEach(function (p) { p.classList.add("in"); });
+    if (passos[0]) passos[0].classList.add("done");
+    if (passos[1]) passos[1].classList.add("done", "active");
+    grade.classList.add("line-on");
   }
 
-  function marcarSequencial() {
+  function animar() {
     passos.forEach(function (passo, i) {
-      setTimeout(function () {
-        passo.classList.add("checked");
-      }, 350 + i * 450);
+      setTimeout(function () { passo.classList.add("in"); }, 100 + i * 90);
     });
+
+    setTimeout(function () { grade.classList.add("line-on"); }, 400);
+
+    setTimeout(function () {
+      if (passos[0]) passos[0].classList.add("done");
+      if (passos[1]) {
+        passos[1].classList.add("done", "active");
+      }
+    }, 950);
   }
 
-  if (!("IntersectionObserver" in window) || reduzirMovimento) {
-    marcarTudo();
+  if (reduzirMovimento || !("IntersectionObserver" in window)) {
+    estadoFinal();
     return;
   }
 
@@ -603,7 +613,7 @@ function iniciarAnimarProcesso() {
     entradas.forEach(function (entrada) {
       if (!entrada.isIntersecting) return;
       obs.unobserve(entrada.target);
-      marcarSequencial();
+      animar();
     });
   }, { threshold: 0.25 });
 

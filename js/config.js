@@ -10,7 +10,7 @@ const CONFIG = {
   empresa: "FF Pisos de Madeiras",
   logoNome: "FF Pisos de Madeiras",
   tagline: "Pisos e Acabamentos em Madeira",
-  slogan: "Elegancia e qualidade em pisos de madeira para transformar seus ambientes",
+  slogan: "Elegância e qualidade em pisos de madeira para transformar seus ambientes",
 
   /* Contato -------------------------------------------------------------- */
   whatsapp: "5500000000000",       // Formato: 55 + DDD + numero (somente digitos)
@@ -30,12 +30,12 @@ const CONFIG = {
   facebook: "",
 
   /* Mensagens do WhatsApp ------------------------------------------------ */
-  mensagemPadrao: "Ola! Gostaria de solicitar um orcamento para pisos de madeira com a FF Pisos de Madeiras.",
-  mensagemPisos: "Ola! Gostaria de solicitar um orcamento para instalacao de pisos de madeira com a FF Pisos de Madeiras.",
-  mensagemRestauracao: "Ola! Gostaria de solicitar um orcamento para restauracao de pisos de madeira com a FF Pisos de Madeiras.",
-  mensagemAcabamento: "Ola! Gostaria de solicitar um orcamento para acabamento de pisos de madeira com a FF Pisos de Madeiras.",
-  mensagemManutencao: "Ola! Gostaria de solicitar um orcamento para manutencao de pisos de madeira com a FF Pisos de Madeiras.",
-  mensagemDrenagem: "Ola! Gostaria de solicitar um orcamento para drenagem e pavimentacao com a FF Pisos de Madeiras."
+  mensagemPadrao: "Olá! Gostaria de solicitar um orçamento para pisos de madeira com a FF Pisos de Madeiras.",
+  mensagemPisos: "Olá! Gostaria de solicitar um orçamento para instalação de pisos de madeira com a FF Pisos de Madeiras.",
+  mensagemRestauracao: "Olá! Gostaria de solicitar um orçamento para restauração de pisos de madeira com a FF Pisos de Madeiras.",
+  mensagemAcabamento: "Olá! Gostaria de solicitar um orçamento para acabamento de pisos de madeira com a FF Pisos de Madeiras.",
+  mensagemManutencao: "Olá! Gostaria de solicitar um orçamento para manutenção de pisos de madeira com a FF Pisos de Madeiras.",
+  mensagemDrenagem: "Olá! Gostaria de solicitar um orçamento para drenagem e pavimentação com a FF Pisos de Madeiras."
 };
 
 /* ==========================================================================
@@ -54,7 +54,7 @@ const PORTFOLIO = [
   {
     tag: "Residencial",
     titulo: "Piso de Peroba Real",
-    descricao: "Instalacao de piso de peroba real com acabamento premium em residencia de alto padrao.",
+    descricao: "Instalação de piso de peroba real com acabamento premium em residência de alto padrão.",
     imagem: "assets/images/portfolio/projeto-01/foto-01.jpg",
     imagens: [
       "assets/images/portfolio/projeto-01/foto-01.jpg",
@@ -64,9 +64,9 @@ const PORTFOLIO = [
     categoria: "Pisos"
   },
   {
-    tag: "Restauracao",
-    titulo: "Restauracao de Piso Antigo",
-    descricao: "Raspagem, lixamento e nova aplicacao de acabamento em piso de madeira centenario.",
+    tag: "Restauração",
+    titulo: "Restauração de Piso Antigo",
+    descricao: "Raspagem, lixamento e nova aplicação de acabamento em piso de madeira centenário.",
     imagem: "assets/images/portfolio/projeto-02/foto-01.jpg",
     imagens: [
       "assets/images/portfolio/projeto-02/foto-01.jpg",
@@ -90,7 +90,7 @@ const PORTFOLIO = [
   {
     tag: "Acabamento",
     titulo: "Acabamento Premium",
-    descricao: "Aplicacao de verniz marine, polimento e tratamento de alto brilho em piso de jatoba.",
+    descricao: "Aplicação de verniz marine, polimento e tratamento de alto brilho em piso de jatobá.",
     imagem: "assets/images/portfolio/projeto-04/foto-01.jpg",
     imagens: [
       "assets/images/portfolio/projeto-04/foto-01.jpg",
