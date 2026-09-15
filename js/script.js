@@ -519,7 +519,6 @@ function iniciarReveal() {
     ".form-info-features > *",
     ".section-title",
     ".coverflow",
-    ".process-grid > *",
     ".final-cta > .container > *"
   ];
 
@@ -566,6 +565,49 @@ function iniciarReveal() {
   observar(seletoresReveal.join(","), "reveal");
   observar(seletoresLeft.join(","), "reveal-left");
   observar(seletoresRight.join(","), "reveal-right");
+}
+
+/* --------------------------------------------------------------------------
+   ANIMACAO SEQUENCIAL DO PROCESSO (checks um a um)
+   -------------------------------------------------------------------------- */
+
+function iniciarAnimarProcesso() {
+  var grade = document.querySelector(".process-grid");
+  if (!grade) return;
+
+  var passos = grade.querySelectorAll(".process-step");
+  if (!passos.length) return;
+
+  var reduzirMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  grade.classList.add("process-animated");
+
+  function marcarTudo() {
+    passos.forEach(function (p) { p.classList.add("checked"); });
+  }
+
+  function marcarSequencial() {
+    passos.forEach(function (passo, i) {
+      setTimeout(function () {
+        passo.classList.add("checked");
+      }, 350 + i * 450);
+    });
+  }
+
+  if (!("IntersectionObserver" in window) || reduzirMovimento) {
+    marcarTudo();
+    return;
+  }
+
+  var obs = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (entrada) {
+      if (!entrada.isIntersecting) return;
+      obs.unobserve(entrada.target);
+      marcarSequencial();
+    });
+  }, { threshold: 0.25 });
+
+  obs.observe(grade);
 }
 
 /* --------------------------------------------------------------------------
@@ -639,6 +681,7 @@ document.addEventListener("DOMContentLoaded", function () {
   montarCoverflow();
   criarParticulasHero();
   iniciarReveal();
+  iniciarAnimarProcesso();
   inicializarMenuMobile();
   iniciarScrollSpy();
 
