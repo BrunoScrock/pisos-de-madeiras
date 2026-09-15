@@ -212,9 +212,9 @@ header.glass.scrolled::before {
 }
 
 .logo-text strong {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 900;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   color: var(--white);
   text-transform: uppercase;
 }
@@ -238,18 +238,18 @@ header.glass.scrolled::before {
 .nav-menu ul {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .nav-menu a {
   display: inline-flex;
   align-items: center;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.2;
   white-space: nowrap;
   color: rgba(255,255,255,0.8);
-  padding: 8px 14px;
+  padding: 8px 12px;
   border-radius: var(--radius-sm);
   position: relative;
   transition: color 0.25s, background 0.25s;
@@ -2246,12 +2246,12 @@ body.no-scroll {
   }
 
   .nav-menu a {
-    padding: 8px 10px;
-    font-size: 0.85rem;
+    padding: 7px 8px;
+    font-size: 0.82rem;
   }
 
   .logo-text strong {
-    font-size: 1.15rem;
+    font-size: 0.98rem;
   }
 
   .logo-box {
