@@ -1,0 +1,28 @@
+# FF Pisos de Madeiras — .gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependências
+node_modules/
+vendor/
+
+# Logs
+*.log
+
+# Ambiente
+.env
+.env.local
+
+# Imagens muito grandes (descomentar se necessário)
+# assets/images/portfolio/**/*.raw
+# assets/images/portfolio/**/*.tiff
