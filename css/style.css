@@ -538,16 +538,38 @@ header.glass.scrolled::before {
 
 .hero-title .line-inner {
   display: inline-block;
-  animation: textRevealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  background: linear-gradient(
+    100deg,
+    rgba(255,255,255,0.55) 0%,
+    var(--cream) 16%,
+    var(--wood-light) 32%,
+    var(--accent) 50%,
+    #EBD3A6 62%,
+    var(--cream) 78%,
+    rgba(255,255,255,0.6) 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:
+    textRevealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both,
+    titleLiquid 7s ease-in-out infinite 1.2s;
 }
 
 .hero-title .line:nth-child(2) .line-inner {
-  animation-delay: 0.18s;
+  animation-delay: 0.18s, 1.2s;
+}
+
+@keyframes titleLiquid {
+  0%   { background-position: 0% 50%; }
+  55%  { background-position: 100% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .hero-title .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--wood-light), #D4A574);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, #E9C68F 0%, var(--accent) 35%, #F6E3BE 55%, #D4A574 75%, #E9C68F 100%);
+  background-size: 220% 220%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
