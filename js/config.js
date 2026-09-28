@@ -7,8 +7,8 @@
 const CONFIG = {
 
   /* Nome e identidade ---------------------------------------------------- */
-  empresa: "FF Pisos de Madeiras",
-  logoNome: "FF Pisos de Madeiras",
+  empresa: "SUA EMPRESA",
+  logoNome: "SUA EMPRESA",
   tagline: "Pisos e Acabamentos em Madeira",
   slogan: "Elegância e qualidade em pisos de madeira para transformar seus ambientes",
 
@@ -30,12 +30,12 @@ const CONFIG = {
   facebook: "",
 
   /* Mensagens do WhatsApp ------------------------------------------------ */
-  mensagemPadrao: "Olá! Gostaria de solicitar um orçamento para pisos de madeira com a FF Pisos de Madeiras.",
-  mensagemPisos: "Olá! Gostaria de solicitar um orçamento para instalação de pisos de madeira com a FF Pisos de Madeiras.",
-  mensagemRestauracao: "Olá! Gostaria de solicitar um orçamento para restauração de pisos de madeira com a FF Pisos de Madeiras.",
-  mensagemAcabamento: "Olá! Gostaria de solicitar um orçamento para acabamento de pisos de madeira com a FF Pisos de Madeiras.",
-  mensagemManutencao: "Olá! Gostaria de solicitar um orçamento para manutenção de pisos de madeira com a FF Pisos de Madeiras.",
-  mensagemDrenagem: "Olá! Gostaria de solicitar um orçamento para drenagem e pavimentação com a FF Pisos de Madeiras."
+  mensagemPadrao: "Olá! Gostaria de solicitar um orçamento para pisos de madeira com a SUA EMPRESA.",
+  mensagemPisos: "Olá! Gostaria de solicitar um orçamento para instalação de pisos de madeira com a SUA EMPRESA.",
+  mensagemRestauracao: "Olá! Gostaria de solicitar um orçamento para restauração de pisos de madeira com a SUA EMPRESA.",
+  mensagemAcabamento: "Olá! Gostaria de solicitar um orçamento para acabamento de pisos de madeira com a SUA EMPRESA.",
+  mensagemManutencao: "Olá! Gostaria de solicitar um orçamento para manutenção de pisos de madeira com a SUA EMPRESA.",
+  mensagemDrenagem: "Olá! Gostaria de solicitar um orçamento para drenagem e pavimentação com a SUA EMPRESA."
 };
 
 /* ==========================================================================
